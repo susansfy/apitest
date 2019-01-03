@@ -39,25 +39,29 @@ class  SendRequest():
 			#req = json.dumps(re,encoding="UTF-8",ensure_ascii=False)
 			# print(body)
 			# print type(re)
-			return re
+			resp = re.json()
+			#print resp
+			res = json.dumps(resp,encoding="utf-8",ensure_ascii=False,indent=4)
+			#print type(res)  ---类型是unicode
+			return res
 
 		except Exception as e:
 			print(e)
 		
-if __name__ == '__main__':
-	s = requests.session()
-	filename = "D:\\learn\\Python\\codetest\\ddttest\\ddttest1.xlsx"
-	sheetname = "Sheet1"
-	testdata = ReadExcel(filename,sheetname).readExcel()
-	#testdata = ReadExcel.readExcel()
-	response = SendRequest().sendRequests(s,testdata[1])
-
-	# listres =  list(response)
-	# print (json.dumps(listres,encoding="utf-8",ensure_ascii=False,indent=4))
-	# print (response.json())
-
-	resp = response.json()
-	print (json.dumps(resp,encoding="utf-8",ensure_ascii=False,indent=4))
-
-	
+# if __name__ == '__main__':
+# 	s = requests.session()
+# 	filename = "D:\\learn\\Python\\codetest\\ddttest\\ddttest1.xlsx"
+# 	sheetname = "Sheet1"
+# 	testdata = ReadExcel(filename,sheetname).readExcel()
+# 	#testdata = ReadExcel.readExcel()
+# 	response = SendRequest().sendRequests(s,testdata[1])
+#  
+# 	# listres =  list(response)
+# 	# print (json.dumps(listres,encoding="utf-8",ensure_ascii=False,indent=4))
+# 	# print (response.json())
+#  
+# 	resp = response.json()
+# 	print (json.dumps(resp,encoding="utf-8",ensure_ascii=False,indent=4))
+# 
+# 	
 	

@@ -9,6 +9,7 @@ import unittest
 import requests
 from ddt import ddt,data,unpack
 import os
+import json
 from readExcel import ReadExcel
 from sendRequest import SendRequest
 
@@ -20,13 +21,24 @@ testdata = ReadExcel(filename,sheetname).readExcel()
 class Test1(unittest.TestCase):
     
     def setUp(self):
-        self.s = requests.sessions()
+        self.s = requests.Session()
         
     def tearDown(self):
         pass
     
     @data(*testdata)
     def test_api(self,data):
-        re = SendRequest().sendRequests(self.s,testdata[1])
+        re = SendRequest().sendRequests(self.s,data)
+    
+        res = json.loads(re)
         
+        #print res  
+        #print type(res)  ---类型是字典
+        #print res['data']['introduction']
+        self.assertEqual(u"有效", res['data']['statusTip'], u'状态有误%s'%res['data']['statusTip'])
+        #print "success"
+        
+        
+if __name__ =='__main__':
+    unittest.main()
         
