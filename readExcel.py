@@ -39,7 +39,7 @@ class ReadExcel():
 # 	print type(s)
 
 ###
-###[{u'body': u'', u'url': u'http://192.168.13.238/webservice/bizAlbumItem.action', u'method': u'get', u'headers': u'', u'params': u'{"id":8}', u'type': u'data', u'id': 1.0}, {u'body': u'', u'url': u'http://192.168.13.238/webservice/bizAlbumItem.action', u'method': u'get', u'headers': u'', u'params': u'{"id":8}', u'type': u'json', u'id': 2.0}]
+###[{u'body': u'', u'type': u'json', u'id': 2.0}]
 ###<type 'list'>
 #结果为列表，列表内是字典，一行数据一个字典
 
