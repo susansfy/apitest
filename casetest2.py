@@ -29,6 +29,7 @@ class Test1(unittest.TestCase):
     
     @data(*testdata)
     def test_api(self,data):
+        
         re = SendRequest().sendRequests(self.s,data)
     
         res = json.loads(re)
@@ -42,10 +43,10 @@ class Test1(unittest.TestCase):
         except_value = data['exceptvalue']
         
         result = re.find(except_value)
-        self.assertEqual(True, result>=0, u"不相等")
+        self.assertEqual(True, result>=0, u"不相等%s")
         
         
-        
-if __name__ =='__main__':
-    unittest.main()
+#         
+# if __name__ =='__main__':
+#     unittest.main()
         
